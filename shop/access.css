@@ -1,0 +1,62 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #22ff43cf;
+    border-radius: 10px;
+    border: 1px solid #cfe2ff85;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+.card{
+    animation: ease-in-out 1s;
+}
+.card a{
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+    padding: 5px 4px;
+    margin: 20px 10px;
+    animation: 1s;
+    text-align: center;
+}
+a:hover{
+    border-bottom: 1px solid black;
+    
+}
+.card{
+    margin: 10px 15px;
+}
+.form{
+    height: 2.5rem;
+    width: 25rem;
+    border-radius: 10px;
+}
+input::placeholder{
+    margin:1rem;
+}
+input{
+    padding: 1rem;
+}
+/* sub-nav */
+h5 p{
+    color: gray;
+}
+ul li.card{
+    margin: 15px 15px;
+    height: max-content;
+    width: 18rem;
+}
+ul .img{
+    height: 17rem;
+    width: 17rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.active{
+    border-bottom: 1px solid black;
+}

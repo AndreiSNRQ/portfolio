@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Check if the PHP file exists
+RewriteCond %{REQUEST_FILENAME}.php -f
+
+# Rewrite the URL to include the .php extension
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
