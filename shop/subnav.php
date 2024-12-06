@@ -4,13 +4,13 @@
                 </form>
             <ul id="myUL" class="flex-no-wrap d-flex justify-content-around card nav-bar flex-row m-2">
                 <a href="feed" name="feeding accessories">Feeding Accessories</a>
-                <a href="groom" >Grooming Accessories</a>
-                <a href="collar">Collars, Leashes, and Harnesses</a>
-                <a href="travel">Travel Accessories</a>
-                <a href="toys" class="px-4">Toys</a>
-                <a href="train">Training and Behavior Aids</a>
-                <a href="health">Health and Wellness</a>
-                <a href="aqua">Aquatic Pet Accessories</a>
+                <a href="groom" name="grooming accessories" >Grooming Accessories</a>
+                <a href="collar" name="collars">Collars, Leashes, and Harnesses</a>
+                <a href="travel" name="travel accessories">Travel Accessories</a>
+                <a href="toys" name="toys" class="px-4">Toys</a>
+                <a href="train" name= "training and behavior aids">Training and Behavior Aids</a>
+                <a href="health" name="health and wellness">Health and Wellness</a>
+                <a href="aqua" name= "aquatic pet accessories">Aquatic Pet Accessories</a>
             </ul>
          </div> 
 
