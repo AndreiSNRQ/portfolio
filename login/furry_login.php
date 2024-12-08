@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start ();
 
 $email = $password = "";
 $emailErr = $passwordErr = "";
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav>
         <img src="../Icons/Main_Logo.png">
         <ul>
-            <li id="modal-trigger"><a href="#">Login</a></li>
+            <li id="modal-trigger"><a>Login</a></li>
         </ul>
     </nav>
 
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="learnmore" id="default-item" class="login">
             <img id="learn-bg" src="../Icons/dog.png">
             <ul>
-                <li><a href="#"></a></li>
+                <li><a id="modal-trigger"></a></li>
                 <li>
                     <p>Visit our website to learn more and find the perfect pet to share your life with.</p>
                 </li>

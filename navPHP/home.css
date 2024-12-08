@@ -114,6 +114,18 @@ nav li:hover{
     background-color: var(--button-color);
     color: #fff;
 }
+.dropdown-content .btn:hover{
+    background-color: var(--button-color);
+    color: #fff;
+    width: 100%;
+    text-align: start;
+}
+.dropdown-content .btn{
+width: 100%;
+padding-top: 3px;
+padding-bottom: 3px;
+text-align: start;
+}
   
 .dropdown:hover .dropdown-content {
     display: block; 

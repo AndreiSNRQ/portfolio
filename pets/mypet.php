@@ -1,170 +1,159 @@
 <?php
-
-$pets =
-    [
-        [
-            "id" => "1",
-            "type" => "Adoption",
-            "Owner" => "John Doe",
-            "phone" => "1234567890",
-            "email" => "john.doe@example.com",
-            "location" => "123 Main St, Anytown, USA",
-            "pname" => "Tiger Commando",
-            "pbreed" => "Golden Retriever",
-            "pdesc" => "A playful and friendly dog who loves to fetch balls.",
-            "pbirth" => "2023-03-15",
-            "pimage" => "../pets/dog.png",
-            "page" => 1,
-            "pgender" => "Female"
-        ],
-        [
-            "id" => "2",
-            "type" => "Sale",
-            "Owner" => "Abdul",
-            "phone" => "0987654321",
-            "email" => "jane.doe@example.com",
-            "location" => "456 Elm St, Anytown, USA",
-            "pname" => "Max",
-            "pbreed" => "Labrador Retriever",
-            "pdesc" => "A loyal and energetic dog who loves to play fetch.",
-            "pbirth" => "2022-06-20",
-            "pimage" => "../pets/dog.png",
-            "page" => 2,
-            "pgender" => "Male"
-        ],
-        [
-            "id" => "3",
-            "type" => "Trade",
-            "Owner" => "Jane Doe",
-            "phone" => "9876543210",
-            "email" => "jane.doe@example.com",
-            "location" => "789 Oak St, Anytown, USA",
-            "pname" => "Chloe",
-            "pbreed" => "Siamese Cat",
-            "pdesc" => "A sweet and cuddly cat who loves to nap in sunbeams.",
-            "pbirth" => "2021-10-01",
-            "pimage" => "../pets/dog.png",
-            "page" => 3,
-            "pgender" => "Female"
-        ]
-    ];
+include 'mypfetch.php'; // Fetch the list of pets
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Management System</title>
     <link rel="stylesheet" href="../user/home.css">
     <link rel="icon" href="../Icons/Main_Logo.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 
-    <?php include '../navPHP/template.php'; ?>
+<?php include '../navPHP/template.php'; ?>
 
-    <div class="container-fluid mt-4">
-        <div class=" mb-3">
-            <button
-                type="button"
-                class="btn btn-success"
-                data-bs-toggle="modal"
-                data-bs-target="#modalId">
-                Add New Pet
-            </button>
-        </div>
+<div class="container-fluid mt-4">
+    <div class="mb-3">
+<!-- Button to trigger modal -->
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAddPet">
+        Add New Pet
+    </button>
 
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="modalId"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="modalTitleId"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitleId">Add New Pet</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form id="addPetForm">
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Pet Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Pet Breed" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="number" class="form-control" placeholder="Pet Age" required>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-select" required>
-                                    <option selected disabled>Pet Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <input type="file" class="form-control" placeholder="Pet Image" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="date" class="form-control" placeholder="Pet Birthday" required>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" placeholder="Pet Description" required></textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Save</button>
-                        </div>
-                    </form>
+    <!-- Modal for Adding Pet -->
+    <div class="modal fade" id="modalAddPet" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Add New Pet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form id="addPetForm" method="POST" action="mypadd.php" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="action" value="add">
+                        <div class="mb-3">
+                            <input type="text" name="pname" class="form-control" placeholder="Pet Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="pbreed" class="form-control" placeholder="Pet Breed" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" name="page" class="form-control" placeholder="Pet Age" required>
+                        </div>
+                        <div class="mb-3">
+                            <select name="pgender" class="form-select" required>
+                                <option selected disabled>Pet Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" name="pimage" class="form-control" placeholder="Pet Image" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" name="pbirth" class="form-control" placeholder="Pet Birthday" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="pdesc" class="form-control" placeholder="Pet Description" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <!-- Pets Grid -->
-        <div class="row">
-            <?php foreach ($pets as $pet): ?>
+    <!-- Pets Grid -->
+    <div class="row mt-4">
+        <?php if (empty($my_pets)): ?>
+            <div class="col-12 text-center">
+                <p>No pets found for this user.</p>
+            </div>
+        <?php else: ?>
+            <?php foreach ($my_pets as $pet): ?>
                 <div class="col-md-2 mb-4">
-                    <div class="card">
-                        <img src="<?php echo $pet['pimage']; ?>" style="width: 100px; height: 100px; align-self: center;" class="card-img-top" alt="Pet Image">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $pet['pname']; ?></h5>
+                    <div class="card h-100">
+                        <!-- Image Source Updated -->
+                        <img src="<?php echo $pet['pimage']; ?>" class="card-img-top mb-0" alt="Pet Image" style="height: 10rem; object-fit:contain;">                        <div class="card-body">
+                            <h5 class="card-title m-0"><?php echo $pet['pname']; ?></h5>
                             <p class="card-text">Breed: <?php echo $pet['pbreed']; ?></p>
-                            <p class="card-text">Birthday: <?php echo $pet['pbirth']; ?></p>
-                            <p class="card-text">Description: <?php echo $pet['pdesc']; ?></p>
                             <p class="card-text">Age: <?php echo $pet['page']; ?> years</p>
                             <p class="card-text">Gender: <?php echo $pet['pgender']; ?></p>
-                            <a href="#" class="btn btn-success btn-sm">Edit Pet Profile</a>
+                            <p class="card-text">Birthday: <?php echo $pet['pbirth']; ?></p>
+                            <p class="card-text">Description: <?php echo $pet['pdesc']; ?></p>
+                            
+                            <div class="align-content-flex-end d-flex justify-content-between mx-4  h-auto" style="align-content: flex-end;">   <!-- Update Button - Opens the Update Modal -->
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalUpdatePet<?php echo $pet['pid']; ?>">
+                                    Update
+                                </button>
+                                <a href="mypdelete.php?pid=<?php echo $pet['pid']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Updating Pet -->
+                <div class="modal fade" id="modalUpdatePet<?php echo $pet['pid']; ?>" tabindex="-1" aria-labelledby="modalUpdateTitle<?php echo $pet['pid']; ?>" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalUpdateTitle<?php echo $pet['pid']; ?>">Update Pet Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form method="POST" action="mypupdate.php" enctype="multipart/form-data">
+                                <input type="hidden" name="action" value="update">
+                                <input type="hidden" name="pet_id" value="<?php echo $pet['pid']; ?>">
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label>Current Image</label><br>
+                                        <img src="<?php echo $pet['pimage']; ?>" alt="Current Pet Image" class="img-fluid" style="max-height: 200px;">
+                                    </div>
+                                    <!-- Option to upload new image -->
+                                    <div class="mb-3">
+                                        <label>Change Image</label>
+                                        <input type="file" name="pimage" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" name="pname" class="form-control" value="<?php echo $pet['pname']; ?>" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" name="pbreed" class="form-control" value="<?php echo $pet['pbreed']; ?>" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="number" name="page" class="form-control" value="<?php echo $pet['page']; ?>" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <select name="pgender" class="form-select" required>
+                                            <option value="Male" <?php echo $pet['pgender'] == 'Male' ? 'selected' : ''; ?>>Male</option>
+                                            <option value="Female" <?php echo $pet['pgender'] == 'Female' ? 'selected' : ''; ?>>Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 ">
+                                        <input type="date" name="pbirth" class="form-control border-1 border-black" value="<?php echo $pet['pbirth']; ?>" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea name="pdesc" class="form-control" required><?php echo $pet['pdesc']; ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
-        </div>
+        <?php endif; ?>
     </div>
+</div>
 
-    <script src="../User/home.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-
-            $('#modalId').on('hidden.bs.modal', function() {
-                $('#addPetForm')[0].reset();
-            });
-
-            $('#addPetForm').on('submit', function(e) {
-                e.preventDefault();
-                alert('Pet information has been submitted!');
-                $('#modalId').modal('hide');
-            });
-        });
-    </script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
