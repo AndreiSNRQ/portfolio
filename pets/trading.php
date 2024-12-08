@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $image = $_FILES['pimage'];
         $upload_dir = '../pets/img/';
         $image_path = $upload_dir . basename($image['name']);
-        
+
         // Validate image file type
         $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
         if (!in_array($image['type'], $allowed_types)) {
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 $sql_insert = $connections->prepare("INSERT INTO pets (pname, pbreed, page, pgender, pimage, pbirth, pdesc, user_id, type)
                                                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $sql_insert->bind_param("ssissssss", $pname, $pbreed, $page, $pgender, $image_path, $pbirth, $pdesc, $user_id, $type);
-                
+
                 if (!$sql_insert->execute()) {
                     $error_message = "Error: " . $sql_insert->error;
                 } else {
@@ -145,7 +145,7 @@ $connections->close();
 
     <div class="container-fluid">
         <!-- Add Pet Button -->
-         <div>
+        <div>
             <button type="button" class="btn btn-success btn-md mt-4" data-bs-toggle="modal" data-bs-target="#addPetModal">Add New Pet</button>
         </div>
         <!-- Pets List -->
@@ -209,7 +209,7 @@ $connections->close();
                                 </div>
                                 <div class="modal-body edit">
                                     <p><strong>Type:</strong></p>
-                                    <input  type="text" name="type" class="form-control" value="<?php echo $pet['type']; ?>" required>
+                                    <input type="text" name="type" class="form-control" value="<?php echo $pet['type']; ?>" required>
                                     <p><strong>Pet Name:</strong></p>
                                     <input type="text" name="pname" class="form-control" value="<?php echo $pet['pname']; ?>" required>
                                     <p><strong>Pet Breed:</strong></p>
@@ -263,52 +263,52 @@ $connections->close();
         </div>
         <!-- TRANSACTIONS FOR OTHER USERS -->
         <div class="container-fluid border-top mx-1">
-        <div class="row mt-4">
-            <h4 class="text-muted">Other Users' Transactions:</h4>
-            <?php foreach ($other_pets as $pet): ?>
-                <div class="col-md-3 mb-4" style="width: 18rem;">
-                    <div class="card text-center">
-                        <img class="card-img-top" src="../pets/<?php echo $pet['pimage']; ?>" alt="Pet Image" style="height: 200px;">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($pet['pname']); ?></h5>
-                            <p class="card-text"><?php echo htmlspecialchars($pet['type']); ?></p>
-                            <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-other-<?php echo $pet['id']; ?>">More Info</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal for Other Users' Pet Info -->
-                <div class="modal fade" id="modal-other-<?php echo $pet['id']; ?>" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Pet Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p><strong>Pet Name:</strong> <?php echo htmlspecialchars($pet['pname']); ?></p>
-                                <p><strong>Pet Breed:</strong> <?php echo htmlspecialchars($pet['pbreed']); ?></p>
-                                <p><strong>Description:</strong> <?php echo htmlspecialchars($pet['pdesc']); ?></p>
-                                <p><strong>Age:</strong> <?php echo htmlspecialchars($pet['page']); ?> years</p>
-                                <p><strong>Gender:</strong> <?php echo htmlspecialchars($pet['pgender']); ?></p>
-                                <p><strong>Birth Date:</strong> <?php echo htmlspecialchars($pet['pbirth']); ?></p>
-                                <hr>
-                                <p><strong>Owner:</strong> <?php echo htmlspecialchars($pet['fname']); ?></p>
-                                <p><strong>Contact:</strong> <?php echo htmlspecialchars($pet['phone']); ?></p>
-                                <p><strong>Email:</strong> <?php echo htmlspecialchars($pet['email']); ?></p>
-                                <p><strong>Location:</strong> <?php echo htmlspecialchars($pet['location']); ?></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="row mt-4">
+                <h4 class="text-muted">Other Users' Transactions:</h4>
+                <?php foreach ($other_pets as $pet): ?>
+                    <div class="col-md-3 mb-4" style="width: 18rem;">
+                        <div class="card text-center">
+                            <img class="card-img-top" src="../pets/<?php echo $pet['pimage']; ?>" alt="Pet Image" style="height: 200px;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo htmlspecialchars($pet['pname']); ?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($pet['type']); ?></p>
+                                <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal-other-<?php echo $pet['id']; ?>">More Info</button>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+
+                    <!-- Modal for Other Users' Pet Info -->
+                    <div class="modal fade" id="modal-other-<?php echo $pet['id']; ?>" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Pet Information</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>Pet Name:</strong> <?php echo htmlspecialchars($pet['pname']); ?></p>
+                                    <p><strong>Pet Breed:</strong> <?php echo htmlspecialchars($pet['pbreed']); ?></p>
+                                    <p><strong>Description:</strong> <?php echo htmlspecialchars($pet['pdesc']); ?></p>
+                                    <p><strong>Age:</strong> <?php echo htmlspecialchars($pet['page']); ?> years</p>
+                                    <p><strong>Gender:</strong> <?php echo htmlspecialchars($pet['pgender']); ?></p>
+                                    <p><strong>Birth Date:</strong> <?php echo htmlspecialchars($pet['pbirth']); ?></p>
+                                    <hr>
+                                    <p><strong>Owner:</strong> <?php echo htmlspecialchars($pet['fname']); ?></p>
+                                    <p><strong>Contact:</strong> <?php echo htmlspecialchars($pet['phone']); ?></p>
+                                    <p><strong>Email:</strong> <?php echo htmlspecialchars($pet['email']); ?></p>
+                                    <p><strong>Location:</strong> <?php echo htmlspecialchars($pet['location']); ?></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
         </div>
-            <!--end of container-->
+        <!--end of container-->
     </div>
     <!-- Add Pet Modal -->
     <div class="modal fade" id="addPetModal" tabindex="-1">
