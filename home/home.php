@@ -101,7 +101,7 @@ if (!$postsQuery) {
     <div class="card">
       <div class="card-body">
         <form action="home" method="post" enctype="multipart/form-data">
-          <input type="file" class="form-control form-control-sm" style="width: 15%;" name="post_image" accept="image/*" required><br>
+          <input type="file" class="form-control form-control-sm" style="width: 15%;" name="post_image" accept="image/*"><br>
           <textarea name="caption" placeholder="Write a caption..." required></textarea> <br>
           <button type="submit" class="btn btn-success" name="btnUpload">Upload Post</button>
         </form>
@@ -120,9 +120,9 @@ if (!$postsQuery) {
               ?>
                 <div class="post">
                   <div class="card mt-2">
+                    <h4><?php echo htmlspecialchars($post['email']); ?></h4>
+                    <p><?php echo htmlspecialchars($post['caption']); ?></p>
                     <img src="<?php echo $post['image_path']; ?>" style="width: 10%" alt="Post image">
-                    <p><strong><?php echo htmlspecialchars($post['email']); ?>:</strong> <?php echo htmlspecialchars($post['caption']); ?></p>
-
                     <!-- Like Button -->
                     <button class="like-btn" style="background:none; border:none; cursor:pointer;">
                       <span class="heart-icon" style="color: gray;">
