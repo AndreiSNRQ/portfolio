@@ -91,11 +91,15 @@ include 'mypfetch.php'; // Fetch the list of pets
                                     <p class="card-text">Birthday: <?php echo $pet['pbirth']; ?></p>
                                     <p class="card-text">Description: <?php echo $pet['pdesc']; ?></p>
 
-                                    <div class="align-content-flex-end d-flex justify-content-between mx-4  h-auto" style="align-content: flex-end;"> <!-- Update Button - Opens the Update Modal -->
+                                    <div class="align-content-flex-end d-flex justify-content-between mx-4 h-auto">
+                                        <!-- Update Button - Opens the Update Modal -->
                                         <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalUpdatePet<?php echo $pet['pid']; ?>">
                                             Update
                                         </button>
-                                        <a href="mypdelete.php?pid=<?php echo $pet['pid']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                        <!-- Delete Button - Triggers Delete Confirmation Modal -->
+                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalDeletePet<?php echo $pet['pid']; ?>">
+                                            Delete
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +121,6 @@ include 'mypfetch.php'; // Fetch the list of pets
                                                 <label>Current Image</label><br>
                                                 <img src="<?php echo $pet['pimage']; ?>" alt="Current Pet Image" class="img-fluid" style="max-height: 200px;">
                                             </div>
-                                            <!-- Option to upload new image -->
                                             <div class="mb-3">
                                                 <label>Change Image</label>
                                                 <input type="file" name="pimage" class="form-control">
@@ -137,7 +140,7 @@ include 'mypfetch.php'; // Fetch the list of pets
                                                     <option value="Female" <?php echo $pet['pgender'] == 'Female' ? 'selected' : ''; ?>>Female</option>
                                                 </select>
                                             </div>
-                                            <div class="mb-3 ">
+                                            <div class="mb-3">
                                                 <input type="date" name="pbirth" class="form-control border-1 border-black" value="<?php echo $pet['pbirth']; ?>" required>
                                             </div>
                                             <div class="mb-3">
@@ -152,6 +155,26 @@ include 'mypfetch.php'; // Fetch the list of pets
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Modal for Deleting Pet (Confirmation) -->
+                        <div class="modal fade" id="modalDeletePet<?php echo $pet['pid']; ?>" tabindex="-1" aria-labelledby="modalDeleteTitle<?php echo $pet['pid']; ?>" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalDeleteTitle<?php echo $pet['pid']; ?>">Delete Pet Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete the pet <strong><?php echo $pet['pname']; ?></strong>?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <a href="mypdelete.php?pid=<?php echo $pet['pid']; ?>" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
@@ -159,5 +182,4 @@ include 'mypfetch.php'; // Fetch the list of pets
 
         <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

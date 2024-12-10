@@ -18,9 +18,19 @@ if (isset($_GET['pid'])) {
     $stmt->bind_param("ii", $pet_id, $user_id);
 
     if ($stmt->execute()) {
-        header("Location: mypet.php"); // Redirect to the pet page after successful deletion
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Pet Deleted Successfully!',
+                        icon: 'success'
+                    }).then(() => {
+                        window.location.href = 'mypet';
+                    });
+                });
+              </script>";
         exit();
-    } else {
+    }  else {
         echo "Error: " . $stmt->error;
     }
 }

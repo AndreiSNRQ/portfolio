@@ -52,9 +52,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $stmt->bind_param("ssissssii", $pname, $pbreed, $page, $pgender, $pimage, $pbirth, $pdesc, $pet_id, $user_id);
 
     if ($stmt->execute()) {
-        header("Location: ../pets/mypet");
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Pet Updated Successfully!',
+                        icon: 'success'
+                    }).then(() => {
+                        window.location.href = 'mypet';
+                    });
+                });
+              </script>";
         exit();
-    } else {
+    }  else {
         echo "Database Error: " . $stmt->error;
     }
 }

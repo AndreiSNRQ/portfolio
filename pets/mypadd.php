@@ -30,7 +30,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $stmt = $connections->prepare($sql);
     $stmt->bind_param("ississss", $user_id, $pname, $pbreed, $page, $pgender, $pimage, $pbirth, $pdesc);
     if ($stmt->execute()) {
-        header("Location: mypet"); // Redirect to the pet page after successful insert
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Pet added Successfully!',
+                        icon: 'success'
+                    }).then(() => {
+                        window.location.href = 'mypet';
+                    });
+                });
+              </script>";
         exit();
     } else {
         echo "Error: " . $stmt->error;
