@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         } else {
             if (move_uploaded_file($image['tmp_name'], $image_path)) {
                 // Prepare statement to prevent SQL injection
-                $sql_insert = $connections->prepare("INSERT INTO pets (pname, pbreed, page, pgender, pimage, pbirth, pdesc, user_id, type)
+                $sql_insert = $connections->prepare("INSERT INTO trading (pname, pbreed, page, pgender, pimage, pbirth, pdesc, user_id, type)
                                                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $sql_insert->bind_param("ssissssss", $pname, $pbreed, $page, $pgender, $image_path, $pbirth, $pdesc, $user_id, $type);
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $pdesc = $_POST['pdesc'];
 
     // Prepare statement to prevent SQL injection
-    $sql_update = $connections->prepare("UPDATE pets
+    $sql_update = $connections->prepare("UPDATE trading
                                          SET pname = ?, pbreed = ?, page = ?, pgender = ?, pbirth = ?, pdesc = ?, type = ?
                                          WHERE id = ? AND user_id = ?");
     $sql_update->bind_param("ssissssii", $pname, $pbreed, $page, $pgender, $pbirth, $pdesc, $type, $pet_id, $user_id);
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $pet_id = $_POST['pet_id'];
 
     // Prepare statement to prevent SQL injection
-    $sql_delete = $connections->prepare("DELETE FROM pets WHERE id = ? AND user_id = ?");
+    $sql_delete = $connections->prepare("DELETE FROM trading WHERE id = ? AND user_id = ?");
     $sql_delete->bind_param("ii", $pet_id, $user_id);
 
     if (!$sql_delete->execute()) {
@@ -92,10 +92,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 }
 
 // Fetch user's pets
-$sql_my_pets = $connections->prepare("SELECT pets.*, signup.fname, signup.phone, signup.email, signup.location
-                                      FROM pets
-                                      JOIN signup ON pets.user_id = signup.id
-                                      WHERE pets.user_id = ?");
+$sql_my_pets = $connections->prepare("SELECT trading.*, signup.fname, signup.phone, signup.email, signup.location
+                                      FROM trading
+                                      JOIN signup ON trading.user_id = signup.id
+                                      WHERE trading.user_id = ?");
 $sql_my_pets->bind_param("i", $user_id);
 $sql_my_pets->execute();
 $result_my_pets = $sql_my_pets->get_result();
@@ -108,10 +108,10 @@ if ($result_my_pets->num_rows > 0) {
 }
 
 // Fetch other users' pets
-$sql_other_pets = $connections->prepare("SELECT pets.*, signup.fname, signup.phone, signup.email, signup.location
-                                        FROM pets
-                                        JOIN signup ON pets.user_id = signup.id
-                                        WHERE pets.user_id != ?");
+$sql_other_pets = $connections->prepare("SELECT trading.*, signup.fname, signup.phone, signup.email, signup.location
+                                        FROM trading
+                                        JOIN signup ON trading.user_id = signup.id
+                                        WHERE trading.user_id != ?");
 $sql_other_pets->bind_param("i", $user_id);
 $sql_other_pets->execute();
 $result_other_pets = $sql_other_pets->get_result();
@@ -138,6 +138,7 @@ $connections->close();
     <link rel="icon" href="../Icons/Main_Logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href=".css">
 </head>
 
 <body>

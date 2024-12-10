@@ -13,7 +13,7 @@ if (isset($_GET['pid'])) {
     $pet_id = $_GET['pid'];
 
     // Delete pet from the database
-    $sql = "DELETE FROM mypets WHERE pid = ? AND user_id = ?";
+    $sql = "DELETE FROM pets WHERE pid = ? AND user_id = ?";
     $stmt = $connections->prepare($sql);
     $stmt->bind_param("ii", $pet_id, $user_id);
 

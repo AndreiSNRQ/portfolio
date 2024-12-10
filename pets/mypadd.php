@@ -25,12 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     move_uploaded_file($_FILES['pimage']['tmp_name'], $target_file);
 
     // Insert pet into the database
-    $sql = "INSERT INTO mypets (user_id, pname, pbreed, page, pgender, pimage, pbirth, pdesc) 
+    $sql = "INSERT INTO pets (user_id, pname, pbreed, page, pgender, pimage, pbirth, pdesc) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $connections->prepare($sql);
     $stmt->bind_param("ississss", $user_id, $pname, $pbreed, $page, $pgender, $pimage, $pbirth, $pdesc);
     if ($stmt->execute()) {
-        header("Location: mypet.php"); // Redirect to the pet page after successful insert
+        header("Location: mypet"); // Redirect to the pet page after successful insert
         exit();
     } else {
         echo "Error: " . $stmt->error;

@@ -33,7 +33,7 @@ include 'mypfetch.php'; // Fetch the list of pets
                             <h5 class="modal-title" id="modalTitleId">Add New Pet</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="addPetForm" method="POST" action="mypadd.php" enctype="multipart/form-data">
+                        <form id="addPetForm" method="POST" action="mypadd" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <input type="hidden" name="action" value="add">
                                 <div class="mb-3">

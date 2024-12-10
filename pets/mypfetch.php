@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 $user_id = $_SESSION['id']; // Get the logged-in user's ID
 
 // Fetch user's pets
-$sql_my_pets = $connections->prepare("SELECT * FROM mypets WHERE user_id = ?");
+$sql_my_pets = $connections->prepare("SELECT * FROM pets WHERE user_id = ?");
 $sql_my_pets->bind_param("i", $user_id);
 $sql_my_pets->execute();
 $result_my_pets = $sql_my_pets->get_result();

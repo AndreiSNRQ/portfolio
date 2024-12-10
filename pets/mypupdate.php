@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $pimage = '';
 
     // Retrieve current image path
-    $sql_get_image = "SELECT pimage FROM mypets WHERE pid = ? AND user_id = ?";
+    $sql_get_image = "SELECT pimage FROM pets WHERE pid = ? AND user_id = ?";
     $stmt_get_image = $connections->prepare($sql_get_image);
     $stmt_get_image->bind_param("ii", $pet_id, $user_id);
     $stmt_get_image->execute();
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 
     // Update pet details
-    $sql = "UPDATE mypets SET pname = ?, pbreed = ?, page = ?, pgender = ?, pimage = ?, pbirth = ?, pdesc = ? 
+    $sql = "UPDATE pets SET pname = ?, pbreed = ?, page = ?, pgender = ?, pimage = ?, pbirth = ?, pdesc = ? 
             WHERE pid = ? AND user_id = ?";
     $stmt = $connections->prepare($sql);
     $stmt->bind_param("ssissssii", $pname, $pbreed, $page, $pgender, $pimage, $pbirth, $pdesc, $pet_id, $user_id);
