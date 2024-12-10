@@ -6,11 +6,11 @@
     <title>SHOP | COLLARS, LEASHES, AND HARNESSES</title>
     <link rel="icon" href="../navPHP/Icons/Main_Logo.png">
     
-    <link rel="stylesheet" href="../shop/access.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/fontawesome/css/all.min.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../shop/access.css">
 </head>
 <body>
     <!-- navbar header -->
