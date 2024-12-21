@@ -30,7 +30,7 @@ if (isset($_POST['logout'])) {
         <section class="dropdown-content">
           <a id="vet" href="../shop/vet">Vet Supplies</a>
           <a id="clinic" href="../shop/clinic">Vet Clinic</a>
-          <a id="feed"" href="../shop/feed">Pet Accessories</a>
+          <a id="feed" href="../shop/feed">Pet Accessories</a>
         </section>
       </section>
 
@@ -38,7 +38,7 @@ if (isset($_POST['logout'])) {
         <button class="dropdown-btn" id="pets">Pets <i class="arrow down"></i></button>
         <div class="dropdown-content">
           <a id="mypet" href="../pets/mypet">My Pets</a>
-          <a id="trading"" href="../pets/trading">Pet Adoption</a>
+          <a id="trading" href="../pets/trading">Pet Adoption</a>
         </div>
       </section>
 
