@@ -4,7 +4,7 @@ import {  Geist_Mono } from 'next/font/google';
 const geistMono = Geist_Mono({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Djembar Portfolio',
+  title: 'AndreiSNRQ | Portfolio',
   description: 'A Fullstack Web Developer Portfolio',
 };
 

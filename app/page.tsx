@@ -1,38 +1,175 @@
 import React from 'react';
 
 export default function Home() {
+
+  const frontendSkills = [
+    {
+      name: 'React',
+      level: 'Expert',
+    },
+    {
+      name: 'VueJS',
+      level: 'Advanced',
+    },
+    {
+      name: 'NextJS',
+      level: 'Advanced',
+    },
+    {
+      name: 'TypeScript',
+      level: 'Advanced',
+    },
+    {
+      name: 'Tailwind CSS',
+      level: 'Advanced',
+    },
+    {
+      name: 'Bootstrap',
+      level: 'Intermediate',
+    },
+  ];
+
+  const backendSkills = [
+    {
+      name: 'NodeJS',
+      level: 'Advanced',
+    },
+    {
+      name: 'Express',
+      level: 'Advanced',
+    },
+    {
+      name: 'MongoDB',
+      level: 'Advanced',
+    },
+    {
+      name: 'JWT',
+      level: 'Advanced',
+    },
+  ];
+
+  const toolsSkills = [
+    {
+      name: 'Git',
+      level: 'Advanced',
+    },
+    {
+      name: 'Docker',
+      level: 'Intermediate',
+    },
+    {
+      name: 'Figma',
+      level: 'Intermediate',
+    },
+  ];
+
+// const levels: { [key: string]: string } = {
+//   Expert: '100%',
+//   Advanced: '90%',
+//   Intermediate: '75%',
+//   Basic: '50%',
+//   Beginner: '30%',
+//   Novice: '10%',
+// };
+const levelStars: { [key: string]: number } = {
+  Expert: 5,
+  Advanced: 4,
+  Intermediate: 3,
+  Basic: 2,
+  Beginner: 1,
+  Novice: 1,
+};
+
+function renderStars(count: number) {
+  return (
+    <span>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span key={i}>{i < count ? '★' : '☆'}</span>
+      ))}
+    </span>
+  );
+}
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-4 py-8 bg-background text-foreground">
       {/* Header Section */}
-      <section className="w-full max-w-4xl text-center mb-12">
-        <div className="text-4xl md:text-6xl font-bold mb-4">
-          Hi, I'm <span className="text-accent">Djembar</span>.
-        </div>
-        <div className="text-lg md:text-xl mb-6">
-          A <span className="text-primary font-semibold">Fullstack Web Developer</span> based in Indonesia. I craft accessible, pixel-perfect, and performant web experiences using modern technologies.
-        </div>
-        <div className="flex justify-center gap-4 mb-6">
-          <button className="bg-accent text-background px-6 py-2 rounded font-semibold hover:bg-secondary transition">Contact Me</button>
-          <a href="/cv.pdf" download className="border border-accent text-accent px-6 py-2 rounded font-semibold hover:bg-accent hover:text-background transition">Download CV</a>
+      <section className="w-full max-w-4xl mb-12">
+        <div className='grid grid-cols-5'>
+          <div className='flex flex-col col-span-3 gap-4 justify-center'>
+            <div className='text-5xl font-bold mb-4' >
+              Hi, I'm <br />
+              <span>AndreiSNRQ.</span>
+            </div>
+            <div>
+              <p>I'm a passionate <b>fullstack web developer</b> with a keen eye for design and a love for creating seamless user experiences.</p>
+            </div>
+          </div>
+          <div className='col-start-4 col-span-2 flex items-center justify-center'>
+            <div>
+              <img src="/assets/me.jpeg" alt="Andrei San Roque" className='w-64 h-64 rounded-md border-2 border-red-500' />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Tech Stack Section */}
       <section className="w-full max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">Technological Foundation</div>
-        <div className="mb-2 text-sm text-foreground/70">The modern tools I use to bring products to life.</div>
-        <div className="flex flex-wrap gap-3 justify-center mt-4">
-          {/* Example tech icons, replace with actual icons as needed */}
-          <span className="bg-foreground/10 px-4 py-2 rounded">React</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">VueJS</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">NextJS</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">TypeScript</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">Tailwind CSS</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">NodeJS</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">Express</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">Golang</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">PHP</span>
-          <span className="bg-foreground/10 px-4 py-2 rounded">Laravel</span>
+        <div className='grid grid-cols-3 gap-3'>
+          <div>
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr>
+                  <th>Frontend</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                {frontendSkills.map((skill) => (
+                  <tr key={skill.name}>
+                    <td>{skill.name}</td>
+                    <td>{renderStars(levelStars[skill.level])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table className='w-full text-center'>
+              <thead>
+                <tr>
+                  <th>Backend</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                {backendSkills.map((skill) => (
+                  <tr key={skill.name}>
+                    <td>{skill.name}</td>
+                    <td>{renderStars(levelStars[skill.level])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table className='w-full text-center'>
+              <thead>
+                <tr>
+                  <th>Tools</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                {toolsSkills.map((skill) => (
+                  <tr key={skill.name}>
+                    <td>{skill.name}</td>
+                    <td>{renderStars(levelStars[skill.level])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
