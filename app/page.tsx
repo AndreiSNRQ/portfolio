@@ -101,20 +101,30 @@ function renderStars(count: number) {
     { id: 'contact', label: 'Contact' },
   ];
 
-  function scrollToSection(id: string) {
-    const section = document.getElementById(id);
+  function scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   return (
     <main className="w-full flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+      {/* Header Section */}
+      <section id="header" className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-red-500 via-red-400 to-red-600 text-white shadow-xl ">
+        <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
+          <div className="text-xl md:text-9xl font-extrabold tracking-tight text-center leading-tight text-black">
+            AndreiSNRQ<span>.</span>
+          </div>
+          <div className="text-xl md:text-xl mb-4 text-center">I am a Entry Level <b>Fullstack Developer</b> fresh graduate in <br /> <b>BS Information Technology</b> with a focus on building modern web experiences, performance, and usability.</div>
+          <button onClick={() => scrollToSection('contact')} className="px-8 py-3 bg-red-600 text-black font-bold rounded-full shadow-black shadow-md hover:bg-gradient-to-br from-red-600 via-red-500 to-red-500 transition text-lg md:text-xl">Let's Connect</button>
+        </div>
+      </section>
+      
       {/* Navigation Bar */}
       <nav className="w-full flex items-center justify-between px-4 py-4 md:px-12 md:py-6 bg-white/60 backdrop-blur-lg rounded-2xl shadow-xl mb-8 sticky top-4 z-50 border border-red-200">
         <div className="flex items-center gap-3">
           <span className="text-3xl md:text-4xl font-extrabold text-red-600 tracking-tight">AndreiSNRQ</span>
-          <span className="hidden md:inline-block text-lg font-semibold text-red-400 ml-2">Portfolio</span>
         </div>
         <div className="flex gap-2">
           {NAV_ITEMS.map(item => (
@@ -131,17 +141,6 @@ function renderStars(count: number) {
           <ThemeToggler />
         </div>
       </nav>
-      {/* Header Section */}
-      <section id="header" className="w-full min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-red-500 via-red-400 to-red-600 text-white rounded-2xl shadow-xl mb-12">
-        <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
-          <div className="text-6xl md:text-7xl font-extrabold tracking-tight mb-2 text-center leading-tight">
-            Hi, I'm <span className="text-yellow-300">AndreiSNRQ</span>
-          </div>
-          <div className="text-xl md:text-2xl font-medium mb-4 text-center">Fullstack Web Developer & UI Enthusiast</div>
-          <div className="mb-6 text-lg md:text-xl text-white/80 text-center">I build modern web experiences with a focus on design, performance, and usability.</div>
-          <button className="px-8 py-3 bg-yellow-300 text-red-700 font-bold rounded-full shadow-lg hover:bg-yellow-400 transition text-lg md:text-xl">Let's Connect</button>
-        </div>
-      </section>
 
       {/* Tech Stack Section */}
       <section id="tech" className="w-full py-20 max-w-5xl mx-auto mb-12">
