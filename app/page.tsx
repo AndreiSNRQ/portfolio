@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
 
@@ -90,11 +91,52 @@ function renderStars(count: number) {
   );
 }
 
+  const NAV_ITEMS = [
+    { id: 'header', label: 'Home' },
+    { id: 'tech', label: 'Tech Stack' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'portfolio', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'certifications', label: 'Certifications' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  function scrollToSection(id: string) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen px-4 py-8 bg-background text-foreground">
+    <main className="w-full flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+      {/* Navigation Bar */}
+      <nav className="w-full flex items-center justify-between py-4 px-8 mb-8 bg-red-500/10 backdrop-blur sticky top-0 z-50 border-b border-foreground/10">
+        {/* Logo */}
+        <div className="flex items-center gap-5">
+          <img src="/assets/favicon.ico" alt="Logo" className="w-8 h-8" />
+          <span className="font-bold text-xl">Portfolio</span>
+        </div>
+        {/* Navigation Links */}
+        <div className="flex">
+          {NAV_ITEMS.map(item => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="px-3 py-2 rounded font-semibold text-foreground hover:bg-background hover:text-red-500 transition"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        {/* Theme Toggler */}
+        <div>
+          <ThemeToggler />
+        </div>
+      </nav>
       {/* Header Section */}
-      <section className="w-full max-w-4xl mb-12">
-        <div className='grid grid-cols-5'>
+      <section className="w-full h-screen pb-5 px-7" id="header">
+        <div className='grid grid-cols-5 bg-red-500/10 p-6 h-full rounded shadow shadow-md gap-6 items-center'>
           <div className='flex flex-col col-span-3 gap-4 justify-center'>
             <div className='text-5xl font-bold mb-4' >
               Hi, I'm <br />
@@ -113,7 +155,7 @@ function renderStars(count: number) {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="w-full max-w-4xl mb-12">
+      <section id="tech" className="w-full h-screen pt-20 max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">Technological Foundation</div>
         <div className='grid grid-cols-3 gap-3'>
           <div>
@@ -174,7 +216,7 @@ function renderStars(count: number) {
       </section>
 
       {/* Skills Section */}
-      <section className="w-full max-w-4xl mb-12">
+      <section id="skills" className="w-full h-screen pt-20 max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">Beyond Just Coding</div>
         <div className="mb-2 text-sm text-foreground/70">I provide holistic web solutions, applying detail principles to both design and code architecture.</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
@@ -198,7 +240,7 @@ function renderStars(count: number) {
       </section>
 
       {/* Portfolio/Projects Section */}
-      <section className="w-full max-w-4xl mb-12">
+      <section id="portfolio" className="w-full h-screen pt-20 max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">Featured Projects</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
           {/* Example project cards */}
@@ -214,7 +256,7 @@ function renderStars(count: number) {
       </section>
 
       {/* Experience Section */}
-      <section className="w-full max-w-4xl mb-12">
+      <section id="experience" className="w-full h-screen pt-20 max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">Professional Experience</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
           <div className="bg-foreground/10 p-6 rounded shadow">
@@ -231,7 +273,7 @@ function renderStars(count: number) {
       </section>
 
       {/* Certifications Section */}
-      <section className="w-full max-w-4xl mb-12">
+      <section id="certifications" className="w-full h-screen pt-20 max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">My Certifications</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
           <div className="bg-foreground/10 p-6 rounded shadow">
@@ -246,7 +288,7 @@ function renderStars(count: number) {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full max-w-4xl mb-12">
+      <section id="contact" className="w-full h-screen pt-20 max-w-4xl mb-12">
         <div className="text-2xl font-bold mb-4">Let's Work Together</div>
         <form className="bg-foreground/10 p-6 rounded shadow flex flex-col gap-4 max-w-md mx-auto">
           <input type="text" placeholder="Your Name" className="px-4 py-2 rounded bg-background border border-foreground/20 focus:border-accent" />
@@ -256,5 +298,34 @@ function renderStars(count: number) {
         </form>
       </section>
     </main>
+  );
+}
+
+function ThemeToggler() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const html = document.documentElement;
+    if (dark) {
+      html.classList.add("dark");
+    } else {
+      html.classList.remove("dark");
+    }
+  }, [dark]);
+
+  return (
+    <button
+      className="ml-auto flex items-center gap-2 px-4 py-2 bg-accent text-foreground rounded-lg shadow hover:bg-primary transition"
+      onClick={() => setDark((prev) => !prev)}
+      aria-label="Toggle theme"
+    >
+      {dark ? (
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      ) : (
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-moon"><path d="M21 12.79A9 9 0 0112.21 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c4.97 0 9-4.03 9-9z"></path></svg>
+        
+      )}
+      <span>{dark ? "Light" : "Dark"}</span>
+    </button>
   );
 }
