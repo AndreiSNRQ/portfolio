@@ -1,69 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Home from './home';
+import Tech from './tech';
+import Project from './project';
 
 export default function MainPage() {
-
-  const frontendSkills = [
-    {
-      name: 'React',
-      level: 'Expert',
-    },
-    {
-      name: 'VueJS',
-      level: 'Advanced',
-    },
-    {
-      name: 'NextJS',
-      level: 'Advanced',
-    },
-    {
-      name: 'TypeScript',
-      level: 'Advanced',
-    },
-    {
-      name: 'Tailwind CSS',
-      level: 'Advanced',
-    },
-    {
-      name: 'Bootstrap',
-      level: 'Intermediate',
-    },
-  ];
-
-  const backendSkills = [
-    {
-      name: 'NodeJS',
-      level: 'Advanced',
-    },
-    {
-      name: 'Express',
-      level: 'Advanced',
-    },
-    {
-      name: 'MongoDB',
-      level: 'Advanced',
-    },
-    {
-      name: 'JWT',
-      level: 'Advanced',
-    },
-  ];
-
-  const toolsSkills = [
-    {
-      name: 'Git',
-      level: 'Advanced',
-    },
-    {
-      name: 'Docker',
-      level: 'Intermediate',
-    },
-    {
-      name: 'Figma',
-      level: 'Intermediate',
-    },
-  ];
 
 // const levels: { [key: string]: string } = {
 //   Expert: '100%',
@@ -73,14 +14,6 @@ export default function MainPage() {
 //   Beginner: '30%',
 //   Novice: '10%',
 // };
-const levelStars: { [key: string]: number } = {
-  Expert: 5,
-  Advanced: 4,
-  Intermediate: 3,
-  Basic: 2,
-  Beginner: 1,
-  Novice: 1,
-};
 
 const scrollToSection = (sectionId: string) => {
   const section = document.getElementById(sectionId);
@@ -88,16 +21,6 @@ const scrollToSection = (sectionId: string) => {
     section.scrollIntoView({ behavior: "smooth" });
   }
 };
-
-function renderStars(count: number) {
-  return (
-    <span>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i}>{i < count ? '★' : '☆'}</span>
-      ))}
-    </span>
-  );
-}
 
 
   const NAV_ITEMS = [
@@ -141,67 +64,8 @@ function renderStars(count: number) {
       </nav>
 
       {/* Tech Stack Section */}
-      <section id="tech" className="w-full py-20 max-w-5xl mx-auto mb-12">
-        <div className="text-4xl font-extrabold text-red-600 mb-8 text-center">Technological Foundation</div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-red-500 via-red-400 to-red-600 rounded-2xl shadow-lg p-8 flex flex-col items-center w-full max-w-xs mx-auto md:max-w-none md:w-auto transition-all">
-            <div className="text-2xl font-bold text-white mb-4">Frontend</div>
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr>
-                  <th className="text-yellow-300">Tech</th>
-                  <th className="text-yellow-300">Level</th>
-                </tr>
-              </thead>
-              <tbody>
-                {frontendSkills.map((skill) => (
-                  <tr key={skill.name}>
-                    <td className="font-semibold text-white">{skill.name}</td>
-                    <td>{renderStars(levelStars[skill.level])}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="bg-gradient-to-br from-red-500 via-red-400 to-red-600 rounded-2xl shadow-lg p-8 flex flex-col items-center w-full max-w-xs mx-auto md:max-w-none md:w-auto transition-all">
-            <div className="text-2xl font-bold text-white mb-4">Backend</div>
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr>
-                  <th className="text-yellow-300">Tech</th>
-                  <th className="text-yellow-300">Level</th>
-                </tr>
-              </thead>
-              <tbody>
-                {backendSkills.map((skill) => (
-                  <tr key={skill.name}>
-                    <td className="font-semibold text-white">{skill.name}</td>
-                    <td>{renderStars(levelStars[skill.level])}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="bg-gradient-to-br from-red-500 via-red-400 to-red-600 rounded-2xl shadow-lg p-8 flex flex-col items-center w-full max-w-xs mx-auto md:max-w-none md:w-auto transition-all">
-            <div className="text-2xl font-bold text-white mb-4">Tools</div>
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr>
-                  <th className="text-yellow-300">Tool</th>
-                  <th className="text-yellow-300">Level</th>
-                </tr>
-              </thead>
-              <tbody>
-                {toolsSkills.map((skill) => (
-                  <tr key={skill.name}>
-                    <td className="font-semibold text-white">{skill.name}</td>
-                    <td>{renderStars(levelStars[skill.level])}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <section id="tech" className="w-full flex flex-col h-screen items-center justify-center max-w-5xl mx-auto">
+        <Tech />
       </section>
 
       {/* Skills Section */}
@@ -229,18 +93,8 @@ function renderStars(count: number) {
       </section>
 
       {/* Portfolio/Projects Section */}
-      <section id="portfolio" className="w-full py-20 max-w-5xl mx-auto mb-12">
-        <div className="text-4xl font-extrabold text-red-600 mb-8 text-center">Featured Projects</div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          <div className="bg-gradient-to-br from-red-500 via-red-400 to-red-600 p-8 rounded-2xl shadow-xl text-white">
-            <div className="font-semibold text-2xl mb-2">NFT Marketplace</div>
-            <div className="text-lg">A modern NFT marketplace built with Next.js and Tailwind CSS.</div>
-          </div>
-          <div className="bg-gradient-to-br from-red-500 via-red-400 to-red-600 p-8 rounded-2xl shadow-xl text-white">
-            <div className="font-semibold text-2xl mb-2">Company Profile Website</div>
-            <div className="text-lg">Corporate website with custom CMS and SEO optimization.</div>
-          </div>
-        </div>
+      <section id="portfolio" className="w-full h-screen">
+        <Project />
       </section>
 
       {/* Experience Section */}
