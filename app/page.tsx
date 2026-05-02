@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Home from './home';
 
-export default function Home() {
+export default function MainPage() {
 
   const frontendSkills = [
     {
@@ -81,6 +82,13 @@ const levelStars: { [key: string]: number } = {
   Novice: 1,
 };
 
+const scrollToSection = (sectionId: string) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 function renderStars(count: number) {
   return (
     <span>
@@ -90,6 +98,7 @@ function renderStars(count: number) {
     </span>
   );
 }
+
 
   const NAV_ITEMS = [
     { id: 'header', label: 'Home' },
@@ -101,24 +110,13 @@ function renderStars(count: number) {
     { id: 'contact', label: 'Contact' },
   ];
 
-  function scrollToSection(sectionId: string) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  }
+
 
   return (
     <main className="w-full flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
       {/* Header Section */}
       <section id="header" className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-red-500 via-red-400 to-red-600 text-white shadow-xl ">
-        <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
-          <div className="text-xl md:text-9xl font-extrabold tracking-tight text-center leading-tight text-black">
-            AndreiSNRQ<span>.</span>
-          </div>
-          <div className="text-xl md:text-xl mb-4 text-center">I am a Entry Level <b>Fullstack Developer</b> fresh graduate in <br /> <b>BS Information Technology</b> with a focus on building modern web experiences, performance, and usability.</div>
-          <button onClick={() => scrollToSection('contact')} className="px-8 py-3 bg-red-600 text-black font-bold rounded-full shadow-black shadow-md hover:bg-gradient-to-br from-red-600 via-red-500 to-red-500 transition text-lg md:text-xl">Let's Connect</button>
-        </div>
+        <Home />
       </section>
       
       {/* Navigation Bar */}
@@ -290,6 +288,8 @@ function renderStars(count: number) {
     </main>
   );
 }
+
+
 
 function ThemeToggler() {
   const [dark, setDark] = useState(false);
