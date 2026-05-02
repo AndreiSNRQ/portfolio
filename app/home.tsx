@@ -1,9 +1,10 @@
+
 import { ChevronsDown } from "lucide-react";
 
 export default function Home() {
     
   return (
-    <div className="max-w-5xl mx-auto min-h-full flex flex-col">
+    <div className="max-w-5xl mx-auto min-h-full flex flex-col items-center justify-center gap-4 px-2 sm:px-4 md:px-8 xl:px-16">
         <div className="text-xl md:text-9xl font-extrabold tracking-tight text-center leading-tight text-black">
             <h1>AndreiSNRQ.</h1>
         </div>

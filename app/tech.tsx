@@ -1,4 +1,3 @@
-
 export default function Tech() {
 
 const frontendSkills = [
@@ -82,7 +81,7 @@ function renderStars(count: number) {
 
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen bg-background text-foreground px-4 py-12">
+    <div className="max-w-5xl mx-auto min-h-full flex flex-col items-center justify-center gap-4 px-2 sm:px-4 md:px-8 xl:px-16">
       <div className="text-4xl font-extrabold text-red-600 mb-8 text-center">
         <h2>Technological Foundation</h2>
       </div>

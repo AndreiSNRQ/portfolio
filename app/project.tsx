@@ -50,7 +50,7 @@ export default function Project() {
   const handleNext = () => setIndex((i) => Math.min(maxIndex, i + 1));
 
   return (
-    <div className="max-w-7xl mx-auto min-h-full flex flex-col items-center justify-center gap-4">
+    <div className="max-w-5xl mx-auto min-h-full flex flex-col items-center justify-center gap-4 px-2 sm:px-4 md:px-8 xl:px-16">
       <div className="text-4xl font-extrabold text-red-600 mb-8 text-center">Featured Projects</div>
       <div className="relative min-w-full">
         <button
