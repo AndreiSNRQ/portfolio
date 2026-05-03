@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff1f1;
+  --background: #FF7672;
   --foreground: #2d0a0a;
   --accent: #e53935;
   --primary: #b71c1c;
@@ -20,7 +20,7 @@
 
 /* Support for Tailwind's dark class */
 .dark {
-  --background: #2d0a0a;
+  --background: #8B0700;
   --foreground: #fff1f1;
   --accent: #b71c1c;
   --primary: #e53935;
@@ -36,3 +36,13 @@ body {
 /* Responsive styles for globals.css */
 /* Add responsive utility classes if needed, but Tailwind handles most responsiveness */
 /* No changes needed unless custom breakpoints or styles are required */
+
+.animate-blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

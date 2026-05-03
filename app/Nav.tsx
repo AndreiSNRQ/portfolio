@@ -19,7 +19,7 @@ import React, { useState, useEffect } from "react";
 
 const Nav = () => {
   return (
-          <nav className="w-full flex items-center justify-between px-4 py-4 md:px-12 md:py-6 bg-white/60 backdrop-blur-lg rounded-2xl shadow-xl mb-8 sticky top-4 z-50 border border-red-200">
+          <nav className="w-full flex items-center justify-between px-4 py-4 md:px-12 md:py-6 bg-white/40 backdrop-blur-lg rounded-2xl shadow-xl mb-8 sticky top-4 z-50 border border-red-200">
             <div className="flex items-center gap-3">
               <span className="text-3xl md:text-4xl font-extrabold text-red-600 tracking-tight">AndreiSNRQ</span>
             </div>

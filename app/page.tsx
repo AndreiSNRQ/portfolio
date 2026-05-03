@@ -25,12 +25,10 @@ const scrollToSection = (sectionId: string) => {
 
 
 
-
-
-
   return (
     <main className="w-full flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
       
+      {/* Home Section */}
       <section id="header" className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-red-500 via-red-400 to-red-600 text-white shadow-xl ">
         <Home />
       </section>
@@ -119,6 +117,3 @@ const scrollToSection = (sectionId: string) => {
     </main>
   );
 }
-
-
-

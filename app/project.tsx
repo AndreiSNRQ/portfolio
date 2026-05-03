@@ -50,17 +50,17 @@ export default function Project() {
   const handleNext = () => setIndex((i) => Math.min(maxIndex, i + 1));
 
   return (
-    <div className="max-w-5xl mx-auto min-h-full flex flex-col items-center justify-center gap-4 px-2 sm:px-4 md:px-8 xl:px-16">
+    <div className="max-w-7xl mx-auto min-h-full flex flex-col items-center justify-center gap-4 px-2 sm:px-4 md:px-8 xl:px-16">
       <div className="text-4xl font-extrabold text-red-600 mb-8 text-center">Featured Projects</div>
       <div className="relative min-w-full">
         <button
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-red-600 text-white rounded-full p-2 z-10 disabled:opacity-50"
+          className="absolute -left-10 top-1/2 -translate-y-1/2 bg-red-600 text-white rounded-full p-2 z-10 disabled:opacity-50"
           onClick={handlePrev}
           disabled={index === 0}
         >
           &#8592;
         </button>
-        <div className="grid max-w-6xl translate-x-15 grid-cols-3 w-full justify-center gap-4 overflow-hidden">
+        <div className="grid max-w-6xl grid-cols-3 max-w-6xl justify-center gap-4 overflow-hidden">
           {projects.slice(index, index + visibleCount).map((project, idx) => (
             <div
               key={project.title}
@@ -81,7 +81,7 @@ export default function Project() {
           ))}
         </div>
         <button
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-red-600 text-white rounded-full p-2 z-10 disabled:opacity-50"
+          className="absolute -right-10 top-1/2 -translate-y-1/2 bg-red-600 text-white rounded-full p-2 z-10 disabled:opacity-50"
           onClick={handleNext}
           disabled={index === maxIndex}
         >
