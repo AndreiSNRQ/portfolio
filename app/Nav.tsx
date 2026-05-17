@@ -1,46 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
-  const NAV_ITEMS = [
-    { id: 'header', label: 'Home' },
-    { id: 'tech', label: 'Tech Stack' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'portfolio', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'certifications', label: 'Certifications' },
-    { id: 'contact', label: 'Contact' },
-  ];
-
-    function scrollToSection(sectionId: string) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-        }
-    }
-
-const Nav = () => {
-  return (
-          <nav className="w-full flex items-center justify-between px-4 py-4 md:px-12 md:py-6 bg-white/40 backdrop-blur-lg rounded-2xl shadow-xl mb-8 sticky top-4 z-50 border border-red-200">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl md:text-4xl font-extrabold text-red-600 tracking-tight">AndreiSNRQ</span>
-            </div>
-            <div className="flex gap-2">
-              {NAV_ITEMS.map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-4 py-2 rounded-full font-semibold text-red-600 bg-white/60 hover:bg-red-600 hover:text-white transition shadow text-sm md:text-base"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-            <div>
-              <ThemeToggler />
-            </div>
-          </nav>
-  );
-
-  function ThemeToggler() {
+function ThemeToggler() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -66,6 +28,64 @@ const Nav = () => {
     </button>
   );
 }
-};
 
-export default Nav;
+export default function Nav() {
+  const NAV_ITEMS = [
+    { id: 'header', label: 'Home' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'services', label: 'Services' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'about', label: 'About' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  // Track scroll position to highlight active section
+  const [activeSection, setActiveSection] = useState(NAV_ITEMS[0].id);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = NAV_ITEMS[0].id;
+      for (const item of NAV_ITEMS) {
+        const section = document.getElementById(item.id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            current = item.id;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  function scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  return (
+    <nav className="w-full flex items-center justify-between px-4 py-4 md:px-12 md:py-6 bg-red-300/10 backdrop-blur-md rounded-2xl shadow-xl mb-8 sticky top-4 z-50">
+      <div className="flex items-center gap-3">
+        <span className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">AndreiSNRQ</span>
+      </div>
+      <div className="flex gap-3">
+        {NAV_ITEMS.map(item => (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className={`px-1 font-semibold transition text-sm md:text-base ${activeSection === item.id ? "border-b-2" : "text-white hover:border-red-400 hover:border-b-2 hover:text-red-700"}`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+      <div></div>
+    </nav>
+  );
+}

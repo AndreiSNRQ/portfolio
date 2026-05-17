@@ -36,8 +36,6 @@ const scrollToSection = (sectionId: string) => {
       {/* Navigation Bar */}
       <Nav />
 
-
-
       {/* Tech Stack Section */}
       <section id="tech" className="w-full flex flex-col h-screen items-center justify-center max-w-5xl mx-auto">
         <Tech />
@@ -68,7 +66,7 @@ const scrollToSection = (sectionId: string) => {
       </section>
 
       {/* Portfolio/Projects Section */}
-      <section id="portfolio" className="w-full h-screen">
+      <section id="projects" className="w-full h-screen">
         <Project />
       </section>
 
