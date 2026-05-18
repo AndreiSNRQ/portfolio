@@ -1,5 +1,7 @@
 name = "portfolio"
-type = "javascript"
 account_id = "a1de8af7a128090f99a68b297c802300"
 workers_dev = true
-compatibility_date = "2026-06-01"
+compatibility_date = "2024-06-01"
+
+[assets]
+directory = "./.next"
