@@ -7,8 +7,8 @@ const fontSans = Inter({subsets:['latin'],variable:'--font-sans'});
 
 
 export const metadata: Metadata = {
-  title: "Portfolio | Creative Developer",
-  description: "Personal portfolio showcasing my work and skills",
+  title: "Portfolio | AndreiSNRQ",
+  description: "My personal portfolio showcasing my work and skills",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${fontSans.variable} bg-background`}>
-      
+
       <body
         className="antialiased"
       >

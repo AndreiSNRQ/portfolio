@@ -1,3 +1,5 @@
+import { title } from "node:process"
+
 export const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -28,17 +30,38 @@ export const socialLinks = [
 
 export const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with cart, checkout, and payment integration.",
-    tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    title: "Inventory Management System",
+    description: "Developed a web-based inventory management system to streamline stock tracking and reporting for a retail client.",
+    tags: ["JavaScript", "HTML/CSS", "Laravel", "PHP", "MySQL", "Bootstrap"],
     github: "https://github.com",
     live: "https://example.com",
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team features.",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB"],
+    title: "Training Management System",
+    description: "Developed a web-based training management system to manage and track training programs for a retail client.",
+    tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"],
     github: "https://github.com",
     live: "https://example.com",
   },
+  {
+    title: "Travel and Tours: Human Resource WorkforceOps",
+    description: "Developed a full-stack web application to manage human resources for a travel and tour company, including attendance tracking, timesheet management, shift and schedule management, claims and reimbursement and leave management.",
+    tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"],
+    github: "https://github.com",
+    live: "https://example.com",
+  },
+  {
+    title: "Travel and Tours: Human Resource WorkforceOps (Attendance Biometric Software)",
+    description: "Developed a integrated attendance biometric software to track employee attendance and time for a travel and tour company.",
+    tags: ["ZKTECO Biometric Device", "Java","MySQL"],
+    github: "https://github.com",
+    live: "https://example.com"
+  },
+  {
+    title: "Hospital Management System: Human Resources 3",
+    description: "Developed a full-stack web application to manage human resources for a hospital.",
+    tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"], 
+    github: "https://github.com",
+    live: "https://example.com",
+  }
 ]
