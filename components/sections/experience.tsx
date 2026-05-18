@@ -33,7 +33,6 @@ const experiences = [
       {
         title: "Capstone Project: Travel and Tours: Human Resource WorkforceOps",
         duration: "2025 - 2026",
-
         description: "Developed a full-stack web application to manage human resources for a travel and tour company, including attendance tracking, timesheet management, shift and schedule management, claims and reimbursement and leave management.",
       },
       {
@@ -43,7 +42,7 @@ const experiences = [
         description: "Developed a integrated attendance biometric software to track employee attendance and time for a travel and tour company.",
       },
       {
-        title: "Hospital Management System: Human Resources",
+        title: "Hospital Management System: Human Resources 3",
         duration: "2025",
         description: "Developed a full-stack web application to manage human resources for a hospital.",
       },
