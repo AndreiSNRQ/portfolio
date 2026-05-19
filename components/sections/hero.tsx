@@ -37,7 +37,7 @@ export function HeroSection() {
         </h1>
 
         <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-          A passionate full-stack developer crafting beautiful, functional, and user-centered digital experiences. 
+          A passionate full-stack developer crafting beautiful, functional, and user-centered digital experiences.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
