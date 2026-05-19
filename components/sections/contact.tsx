@@ -34,7 +34,7 @@ export function ContactSection() {
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Get In Touch</h2>
           <div className="mt-4 h-1 w-20 bg-primary mx-auto rounded-full" />
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let&apos;s work together to create something amazing.
+            Have a project in mind? Let's work together to create something amazing.
           </p>
         </div>
 
@@ -45,35 +45,16 @@ export function ContactSection() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="name" placeholder="Your name" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Input id="email" type="email" placeholder="your@email.com" />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="subject">Subject</Label>
-                <Input
-                  id="subject"
-                  placeholder="What is this about?"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
+                <Input id="subject" placeholder="What is this about?" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
@@ -81,13 +62,10 @@ export function ContactSection() {
                   id="message"
                   placeholder="Tell me about your project..."
                   className="min-h-[150px] resize-none"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
                 />
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Sending..." : "Send Message"}
+              <Button type="submit" className="w-full">
+                Send Message
               </Button>
             </form>
           </div>
