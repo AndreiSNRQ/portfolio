@@ -15,11 +15,13 @@ const experiences = [
         title: "Inventory Management System",
         skills: ["JavaScript", "HTML/CSS", "Laravel", "PHP", "MySQL", "Bootstrap"],
         description: "Developed a web-based inventory management system to streamline stock tracking and reporting for a retail client.",
+        duration:"Jan - Feb 2026"
       },
       {
         title: "Training Management System",
         skills: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"],
         description: "Developed a web-based training management system to manage and track training programs for a retail client.",
+        duration:"Mar - Apr 2026"
       }
     ],
   },
@@ -28,7 +30,7 @@ const experiences = [
     title: "Bachelor of Science in Information Technology",
     company: "Bestlink College of the Philippines",
     period: "2022 - 2026",
-    description: "Graduated focusing on information management and web development.",
+    description: "Graduated focusing on Information Management (IM) and web development.",
     develop: [
       {
         title: "Capstone Project: Travel and Tours: Human Resource WorkforceOps",
@@ -39,12 +41,22 @@ const experiences = [
         title: "Capstone Project: Travel and Tours: Human Resource WorkforceOps (Attendance Biometric Software)",
         duration: "2025 - 2026", 
         technology: "ZKTECO Biometric Device",
-        description: "Developed a integrated attendance biometric software to track employee attendance and time for a travel and tour company.",
+        description: "Developed a integrated attendance biometric software to track employee attendance for a travel and tour company.",
+      },
+      {
+        title: "Ireklamo+: Blotter and Complaint Management System",
+        duration: "December 2025",
+        description: "The Ireklamo+ System is a Digital platform designed to streamline reporting and management of complaints within a community, organization, or institution. It allows residents to easily submit issues or concerns through an online interface.",
+      },
+      {
+        title: "Furry Connect",
+        duration: "December 2025",
+        description: "Developed a full-stack web system to manage human resources for a hospital.",
       },
       {
         title: "Hospital Management System: Human Resources 3",
-        duration: "2025",
-        description: "Developed a full-stack web application to manage human resources for a hospital.",
+        duration: "December 2025",
+        description: "Developed a full-stack basic web system to manage human resources for a hospital.",
       },
     ],
   },
@@ -90,9 +102,9 @@ export function ExperienceSection() {
                             <GraduationCap className="h-4 w-4" />
                           )}
                         </div>
-                        <span className="text-sm font-medium text-primary">{exp.period}</span>
+                        <span className="text-sm flex capitalize items-center font-medium text-primary">{exp.period}</span>
                       </div>
-                      <CardTitle className="text-xl">{exp.title}</CardTitle>
+                      <CardTitle className="text-lg">{exp.title} <span className="text-xs text-primary capitalize bg-primary/10 px-3 py-1 rounded-full">{exp.type}</span></CardTitle>
                       <CardDescription className="text-base font-medium">
                         {exp.company}
                         <p className="text-muted-foreground text-sm font-medium mt-2">{exp.description}</p>

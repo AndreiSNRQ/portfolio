@@ -23,10 +23,10 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <Card
               key={project.title}
-              className="group overflow-hidden border-border hover:border-primary/50 transition-colors"
+              className="group overflow-hidden border border-border hover:shadow-md shadow-primary/50 transition-colors"
             >
               {/* Project Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+              <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center ">
                 <span className="text-4xl font-bold text-primary/20">{project.title.charAt(0)}</span>
               </div>
               <CardContent className="p-6">
