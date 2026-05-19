@@ -35,14 +35,14 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image/Avatar side */}
           <div className="relative">
-            <div className="aspect-square max-w-md mx-auto  p-1 flex items-center justify-center p-6">
-              <div className=" bg-card flex items-center justify-center">
-                <Image className="object-cover border border-4 rounded-xl border-foreground hover:border-primary" src={me} alt="Andrei SNRQ" />
+            <div className="aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex items-center justify-center">
+              <div className="rounded-xl bg-card border border-border flex items-center justify-center">
+                <Image src={me} alt="Andrei SNRQ" />
               </div>
             </div>
             {/* Experience badge */}
-            <div className="absolute top-133 -right-4 lg:right-8 bg-primary text-primary-foreground px-3 py-1 rounded-xl shadow-lg">
-              <span className="text-xl font-bold">{yearsOfExperience}</span>
+            <div className="absolute -bottom-4 -right-4 lg:right-8 bg-primary text-primary-foreground px-6 py-3 rounded-xl shadow-lg">
+              <span className="text-2xl font-bold">{yearsOfExperience}</span>
               <span className="text-sm ml-1">Years Exp.</span>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function AboutSection() {
               {highlights.map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors"
+                  className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <item.icon className="h-6 w-6 text-primary" />
