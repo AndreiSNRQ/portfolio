@@ -72,7 +72,7 @@ export const projects = [
     live: "Not Deployed",
   },
   {
-    title: "Portfolio",
+    title: "Personal Portfolio",
     description: "Developed a personal portfolio website to showcase my work and share my skills.",
     tags: ["JavaScript", "HTML/CSS", "Next.js", "TypeScript", "Tailwind CSS"], 
     github: "https://github.com",
