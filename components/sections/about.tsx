@@ -60,7 +60,7 @@ export function AboutSection() {
             </p>
 
             {/* Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6">
               {highlights.map((item) => (
                 <div
                   key={item.title}
@@ -70,7 +70,7 @@ export function AboutSection() {
                     <item.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">{item.title}</h3>
+                    <h3 className="font-semibold sm:text-md lg:text-lg font-bold text-foreground">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </div>

@@ -9,7 +9,7 @@ import { projects } from "@/config/navigation"
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 lg:py-48 md:py-150 sm:py-150">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Featured Projects</h2>
@@ -19,7 +19,7 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <Card
               key={project.title}
