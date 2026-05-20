@@ -36,7 +36,7 @@ export function HeroSection() {
           <span className="text-primary">{siteConfig.name}</span>
         </h1>
 
-        <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+        <p className="mt-6 text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-pretty">
           A passionate full-stack developer crafting beautiful, functional, and user-centered digital experiences.
         </p>
 

@@ -83,9 +83,7 @@ export function ExperienceSection() {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
+                className={`relative flex flex-col md:flex-row gap-4 md:gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-primary rounded-full md:-translate-x-1.5 translate-y-6 ring-4 ring-background" />

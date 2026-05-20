@@ -38,7 +38,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-card border border-border rounded-2xl p-8">
             <form className="space-y-6">

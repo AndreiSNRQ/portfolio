@@ -18,7 +18,7 @@ export const siteConfig = {
   description: "A passionate full-stack developer crafting beautiful, functional, and user-centered digital experiences.",
   resumeUrl: "/resume.pdf",
   github: "https://github.com/AndreiSNRQ",
-  linkedin: "https://linkedin.com/in/sanroque-andrei",
+  linkedin: "https://linkedin.com/in/andreisnrq",
   facebook: "https://facebook.com/AndreiSNRQ",
 }
 
@@ -48,21 +48,28 @@ export const projects = [
     description: "Developed a full-stack web application to manage human resources for a travel and tour company, including attendance tracking, timesheet management, shift and schedule management, claims and reimbursement and leave management.",
     tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"],
     github: "https://github.com",
-    live: "https://example.com",
+    live: "not deployed",
   },
   {
     title: "Travel and Tours: Human Resource WorkforceOps (Attendance Biometric Software)",
     description: "Developed a integrated attendance biometric software to track employee attendance and time for a travel and tour company.",
     tags: ["ZKTECO Biometric Device", "Java","MySQL"],
-    github: "https://github.com",
-    live: "https://example.com"
+    github: "https://github.com/AndreiSNRQ/fingerprint/",
+    live: "Local Software",
   },
   {
     title: "Hospital Management System: Human Resources 3",
     description: "Developed a full-stack web application to manage human resources for a hospital.",
     tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"], 
-    github: "https://github.com",
-    live: "https://example.com",
+    github: "https://github.com/AndreiSNRQ/HR3/",
+    live: "not deployed",
+  },
+  {
+    title: "Ireklamo+ : Barangay Complaint and Blotter Management System",
+    description: "Developed a full-stack web application to manage complaints and blotters in a barangay level.",
+    tags: ["JavaScript", "HTML/CSS", "PHP", "MySQL", "HTML", "CSS", "Tailwind CSS"], 
+    github: "https://github.com/AndreiSNRQ/iREKLAMO",
+    live: "Not Deployed",
   },
   {
     title: "Portfolio",
