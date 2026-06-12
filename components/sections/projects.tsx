@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -5,6 +7,9 @@ import { ExternalLink } from "lucide-react"
 import { GithubIcon } from "@/components/icons"
 import Link from "next/link"
 import { projects } from "@/config/navigation"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel"
+import Image from "next/image"
+import Autoplay from "embla-carousel-autoplay"
 
 
 export function ProjectsSection() {
@@ -26,9 +31,43 @@ export function ProjectsSection() {
               className="group overflow-hidden border border-border hover:shadow-md shadow-primary/50 transition-colors"
             >
               {/* Project Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center ">
-                <span className="text-4xl font-bold text-primary/20">{project.title.charAt(0)}</span>
-              </div>
+              {project.images && project.images.length > 0 ? (
+                <Carousel
+                  opts={{
+                    loop: true,
+                  }}
+                  plugins={[
+                    Autoplay({
+                      delay: 3000, // 3 seconds
+                    }),
+                  ]}
+                  className="w-full px-5"
+                >
+                  <CarouselContent>
+                    {project.images.map((image, imgIndex) => (
+                      <CarouselItem key={imgIndex}>
+                        <div className="aspect-video flex items-center justify-center">
+                          <Image
+                            src={image}
+                            alt={`${project.title} image ${imgIndex + 1}`}
+                            width={500} // Adjust width as needed
+                            height={300} // Adjust height as needed
+                            className="object-cover w-full h-full rounded-md"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              ) : (
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center ">
+                  <span className="text-4xl font-bold text-primary/20">
+                    {project.title.charAt(0)}
+                  </span>
+                </div>
+              )}
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                   {project.title}

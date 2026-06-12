@@ -40,6 +40,7 @@ export const projects = [
     title: "Training Management System",
     description: "Developed a web-based training management system to manage and track training programs for a retail client.",
     tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"],
+    images: ["/images/training/training1.png", "/images/training/training2.png", "/images/training/training3.png", "/images/training/training4.png", "/images/training/training5.png","/images/training/training6.png"],
     github: "https://github.com",
     live: "https://training-system-1-2nzr.onrender.com",
   },
