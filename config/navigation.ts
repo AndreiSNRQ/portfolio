@@ -41,7 +41,7 @@ export const projects = [
     description: "Developed a web-based training management system to manage and track training programs for a retail client.",
     tags: ["JavaScript", "HTML/CSS", "React", "PostgreSQL", "TypeScript", "Node.js", "Tailwind CSS"],
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://training-system-1-2nzr.onrender.com",
   },
   {
     title: "Travel and Tours: Human Resource WorkforceOps",
