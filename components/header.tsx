@@ -41,7 +41,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Button className="hidden sm:inline-flex" onClick={downloadResume}>
               <Download className="mr-2 h-4 w-4" />
-              Download Resume
+              Download CV
             </Button>
             <Button size="sm" className="sm:hidden">
               <Download className="h-4 w-4" />
